@@ -128,6 +128,8 @@ function saml_acs() {
 			$userdata['last_name'] = $attrs[$lastNameMapping][0];
 		}
 
+		$userdata['display_name'] = $userdata['first_name'] . " " . $userdata['last_name'];
+
 		if (!empty($roleMapping) && isset($attrs[$roleMapping])){
 			$adminsRole = explode(',', get_option('onelogin_saml_role_mapping_administrator'));
 			$editorsRole = explode(',', get_option('onelogin_saml_role_mapping_editor'));
